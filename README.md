@@ -12,24 +12,21 @@ yarn dev
 pnpm dev
 ```
 
-# Features
+## Features
 
-Autocomplete Skill Entry: Users can enter skills into a text field, and as they start typing, an autocomplete pop-up window appears. The autocomplete functionality is achieved using [Specify the auto-complete library you plan to use].
+This project implements a skill management system with the following features:
 
-Skill Tag Display: Each skill entered is displayed as a tag. Skills are sequentially ordered, with each newly entered skill following the previous one.
+- **Autocomplete Skill Entry**: Users can enter skills into a text field, and as they start typing, an autocomplete pop-up window appears. The autocomplete functionality is achieved using [Specify the auto-complete library you plan to use].
 
-Order Preservation: The system ensures that skills are stored in the same order they were entered, both in the frontend array and in the database.
+- **Skill Tag Display**: Each skill entered is displayed as a tag. Skills are sequentially ordered, with each newly entered skill following the previous one.
 
-Draggable Skills: Skills can be rearranged by dragging and dropping them. This is implemented using the @dnd-kit library, allowing users to change the order and priority of their skills.
+- **Order Preservation**: The system ensures that skills are stored in the same order they were entered, both in the frontend array and in the database.
 
-Skill Deletion: Users can delete a skill either by clicking on an "X" icon associated with the skill tag or by swiping the skill out of the tag block in any direction. Choose one of these options for skill deletion based on your preference.
+- **Draggable Skills**: Skills can be rearranged by dragging and dropping them. This is implemented using the [@dnd-kit library](https://github.com/clauderic/dnd-kit), allowing users to change the order and priority of their skills.
 
-Database Storage: All entered skills are stored in a database, with each skill associated with a fixed ID for efficient retrieval and management.
+- **Skill Deletion**: Users can delete a skill either by clicking on "Delete" button associated with the skill tag or by swiping the skill out of the tag block in any direction. Choose one of these options for skill deletion based on your preference.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
+- **Database Storage**: All entered skills are stored in a database, with each skill associated with a fixed ID for efficient retrieval and management.
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
