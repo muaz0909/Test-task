@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import {
   arrayMove,
@@ -6,12 +5,12 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useEffect, useState, useMemo } from "react";
-import { Button } from "reactstrap";
+import { Button } from "../../components/ui/button";
 import { SortableItem } from "./Sortable";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-function Draggable({ value, setSelectedSkills }) {
+function Draggable({ value, setSelectedSkills,setSkills,skills }) {
   const [languages, setLanguages] = useState([]);
   const [loader, setLoader] = useState(false);
 
@@ -33,8 +32,12 @@ function Draggable({ value, setSelectedSkills }) {
 
   const deleteSkill = (id) => {
     setLanguages(languages.filter((e) => e.id !== id));
-    const docRef = doc(db, "skill", "util");
-    setDoc(docRef, { skills: languages.filter((e) => e.id !== id) });
+    const skillDeleted = languages.find((e) => e.id === id);
+    console.log(skillDeleted);
+    // setSelectedSkills(languages.filter((e) => e.id !== id))
+   setSkills([...skills,skillDeleted])
+    // const docRef = doc(db, "skill", "util");
+    // setDoc(docRef, { skills: languages.filter((e) => e.id !== id) });
   };
 
   useEffect(() => {
@@ -44,6 +47,7 @@ function Draggable({ value, setSelectedSkills }) {
       if (docSnap.exists()) {
         const _data = docSnap.data();
         setLanguages(_data.skills ?? []);
+        setSelectedSkills(_data.skills ?? []);
       } else {
         console.log("No such document!");
       }

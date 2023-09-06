@@ -1,5 +1,8 @@
 "use client";
 
+
+import {Button} from "../components/ui/button"
+
 import { useEffect, useState } from "react";
 import AutoSuggest from "react-autosuggest";
 import styles from "./page.module.css";
@@ -45,8 +48,6 @@ export default function Home() {
     const filteredArray2 = skills.filter(
       (item) => !idsArray2.includes(item.name)
     );
-
-    console.log(filteredArray2);
     setSkills([...filteredArray2]);
   }, [selectedSkills]);
 
@@ -82,7 +83,12 @@ export default function Home() {
           highlightFirstSuggestion={true}
         />
       </div>
-      <Draggable value={selectedValue} setSelectedSkills={setSelectedSkills} />
+      <Draggable
+        value={selectedValue}
+        setSelectedSkills={setSelectedSkills}
+        setSkills={setSkills}
+        skills={skills}
+      />
     </div>
   );
 }
